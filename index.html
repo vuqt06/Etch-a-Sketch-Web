@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:;base64,=">
     <title>Etch A Sketch</title>
 </head>
 
@@ -16,25 +15,24 @@
     </div>
     <script>
         let size = 16;
+        let rainbow = false;
         console.log('test');
         let gridContainer = document.querySelector('.grid-container');
-        window.onload = () => {
-            for (i = 0; i < size; i++) {
-                let gridLine = document.createElement('div');
-                gridLine.classList.add('grid-line');
-                for (j = 0; j < size; j++) {
-                    let gridItem = document.createElement('div');
-                    gridItem.classList.add('grid-item');
-                    gridLine.appendChild(gridItem);
-                }
-                gridContainer.appendChild(gridLine);
+        for (i = 0; i < size; i++) {
+            let gridLine = document.createElement('div');
+            gridLine.classList.add('grid-line');
+            for (j = 0; j < size; j++) {
+                let gridItem = document.createElement('div');
+                gridItem.addEventListener('mouseover', (event) => {
+                    event.target.style.background
+                        = rainbow ? '#' + Math.floor(Math.random() * 16777215).toString(16) : '#000';
+                })
+                gridItem.classList.add('grid-item');
+                gridLine.appendChild(gridItem);
             }
+            gridContainer.appendChild(gridLine);
         }
 
-        let gridItem = document.querySelector('.grid-item');
-        gridItem.addEventListener('mouseover', (event) => {
-            event.target.style.color = black;
-        })
 
     </script>
 </body>
