@@ -1,3 +1,8 @@
+.main-content {
+    display: flex;
+    justify-content: space-around;
+}
+
 .grid-container {
     display: flex;
     flex-direction: column;
@@ -12,4 +17,23 @@
     height: 30px;
     width: 30px;
     border: 2px solid green;
+}
+
+.rainbow {
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    color: black;
+}
+
+.black {
+    background-color: black;
+    color: white;
+}
+
+.buttons-manager {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset {
+    background-color: white;
 }

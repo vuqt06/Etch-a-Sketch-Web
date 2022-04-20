@@ -10,8 +10,12 @@
 </head>
 
 <body>
-    <div class="grid-container">
-
+    <div class="main-content">
+        <div class="buttons-manager">
+            <button class="clear-button">Clear</button>
+            <button class="color-button">Black</button>
+        </div>
+        <div class="grid-container"></div>
     </div>
     <script>
         let size = 16;
@@ -32,6 +36,28 @@
             }
             gridContainer.appendChild(gridLine);
         }
+
+        let clearButton = document.querySelector('.clear-button');
+        clearButton.addEventListener('click', () => {
+            let gridItems = document.querySelectorAll('.grid-item');
+            gridItems.forEach(gridItem => gridItem.style.background = '#FFF');
+        });
+
+        let colorButton = document.querySelector('.color-button');
+        colorButton.classList.add('black');
+        colorButton.addEventListener('click', (event) => {
+            if (rainbow) {
+                rainbow = false;
+                event.target.textContent = 'Black';
+                event.target.classList.remove('rainbow');
+                event.target.classList.add('black');
+            } else {
+                rainbow = true;
+                event.target.textContent = 'RGB';
+                event.target.classList.remove('black');
+                event.target.classList.add('rainbow');
+            }
+        });
 
 
     </script>
